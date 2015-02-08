@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title></title>
+ 
+  	 <link rel="stylesheet" href="jquery.mobile-1.4.2/jquery.mobile-1.4.2.min.css">
+	 <link rel="stylesheet" href="css/table.css">
+	 <script type="text/javascript" src="cordova.js"></script>
+	 <script type="text/javascript" src="jquery/jquery-1.9.1.min.js"></script>
+	 <script type="text/javascript" src="jquery/jquery.mobile-1.4.2.min.js"></script>
+	 <script type="text/javascript" src="js/register.js"></script> 
+	 <script type="text/javascript" src="js/iscroll.js"></script> 
+ 
+</head>
+<body>
+
+	<div data-role="page" id="page1">
+			
+		
+		<!--/header-->	
+		<div data-role="header" data-position="inline" data-theme="b">
+		
+			<a href="#" data-icon="back" data-rel="back" title="Go back">Back</a>
+			<h1>Registration</h1>
+			<a href="index.html" data-icon="home">Menu</a>
+			
+		</div>
+		<!--/header-->
+		
+   <div id="wrapper">
+	<form action="" name="myForm">
+		<div data-role="content">
+			<div class="fname" data-role="fieldcontain">
+				<label for="fname"> First Name </label> <input name="fname"
+					id="fname" placeholder="Jhone" value="" data-mini="true" type="text">
+			</div>
+			<div class="lname" data-role="fieldcontain">
+				<label for="lname"> Last Name </label> <input name="lname"
+					id="lname" placeholder="Philips" value="" type="text">
+			</div>
+			<div class="age" data-role="fieldcontain">
+				<label for="age"> Age </label> <input name="age" id="age"
+					placeholder="22" value="" type="number">
+			</div>
+			<div class="username" data-role="fieldcontain">
+				<label for="username"> User Name </label> <input name="username"
+					id="username" placeholder="Jhone123" value="" type="text">
+			</div>
+			<div class="psw" data-role="fieldcontain">
+				<label for="psw"> Password </label> <input name="password" id="psw"
+					placeholder="enter password" value="" type="password">
+			</div>
+			<input id="register" value="Register" type="button" name="Register" onclick="validationcheck();">
+		</div>
+		</form>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		function validationcheck() {
+			
+			if (document.myForm.fname.value == "") {
+				alert("Please Enter fname.");
+				document.myForm.fname.focus(); 
+			} else if (document.myForm.lname.value == "") {
+				alert("Please Enter lname.");
+				document.myForm.lname.focus();
+			} else if (document.myForm.age.value == "") {
+				alert("Please Enter age.");
+				document.myForm.age.focus();
+			} else if (document.myForm.username.value == "") {
+				alert("Please Enter username.");
+				document.myForm.username.focus();
+			}
+			else if (document.myForm.psw.value == "") {
+				alert("Please Enter password");
+				document.myForm.psw.focus();
+			}
+			else
+				{
+				  success();
+				}
+		}
+		
+		function success(){
+			onDeviceReady();
+		}
+	</script>
+
+</body>
+</html>

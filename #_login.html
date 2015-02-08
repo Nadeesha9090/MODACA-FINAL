@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title></title>
+
+ <link rel="stylesheet" href="jquery.mobile-1.4.2/jquery.mobile-1.4.2.min.css">
+ <script type="text/javascript" src="cordova.js"></script>
+ <script type="text/javascript" src="jquery/jquery-1.9.1.min.js"></script>
+ <script type="text/javascript" src="jquery/jquery.mobile-1.4.2.min.js"></script> 
+ <script type="text/javascript" src="js/login.js"></script>  
+ <script type="text/javascript" src="js/iscroll.js"></script> 
+
+</head>
+
+<body>
+
+	<!-- Home -->
+	<div data-role="page" id="page1">
+		
+		
+		
+		<!--/header-->	
+		<div data-role="header" data-position="inline" data-theme="b">
+		
+			<a href="#" data-icon="back" data-rel="back" title="Go back">Back</a>
+			<h1>Login</h1>
+			<a href="register.html" data-icon="check" data-theme="b">Register</a>
+			
+		</div>
+		<!--/header-->
+		
+		
+		 <div id="wrapper">
+			<form action="" name="mylogin">
+		<div data-role="content">
+			<div class="username" data-role="fieldcontain">
+				<label for="username"> Username </label> <input name="username"
+					id="username" placeholder="enter username" value="" type="text">
+			</div>
+			<div class="psw" data-role="fieldcontain">
+				<label for="psw"> Password </label> <input name="password" id="psw"
+					placeholder="enter password" value="" type="password">
+			</div>
+			 <input id="login" value="Login" type="button" name="Login" onclick="validationcheck();">
+			 
+			  <a href="#" class="easyui-linkbutton">forget password</a>
+		</div>
+		</form>
+		</div>
+	</div>
+
+<script type="text/javascript">
+ function validationcheck(){
+
+	 if (document.mylogin.username.value == "") {
+			alert("Please Enter Username.");
+			document.mylogin.username.focus(); 
+		} else if (document.mylogin.psw.value == "") {
+			alert("Please Enter Password.");
+			document.mylogin.psw.focus();
+		}
+		else
+			{
+			  success();
+			}
+	}
+	
+	function success(){
+		onDeviceReady();
+ }
+</script>
+</body>
+</html>
