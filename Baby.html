@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Household Profile DB storage</title>
+	
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no,
+                                       initial-scale=1, maximum-scale=1,
+                                       minimum-scale=1,width=device-width" />
+    
+	
+	 <link rel="stylesheet" href="jquery/jquery.mobile-1.4.2.min.css">
+	 <link rel="stylesheet" href="css/table.css">
+   
+	 <script type="text/javascript" src="cordova.js"></script>
+	 <script type="text/javascript" src="jquery/jquery-1.9.1.min.js"></script>
+	 <script type="text/javascript" src="jquery/jquery.mobile-1.4.2.min.js"></script>
+	 
+	 <script type="text/javascript" src="js/iscroll.js"></script> 
+	  
+	<script type="text/javascript" charset="utf-8">
+        function onDeviceReady() { 
+		 persistData(homeId,name,age,gender,siblings,weight,height,diseases,note);
+		}
+        function saveLocal(form){
+            if (window.localStorage) {
+                
+                var fhomeId = form.homeId.value,
+                    fname = form.name.value,
+                    fage = form.age.value,
+                    fgender= form.gender.value,
+                    fsiblings = form.siblings.value,
+                    fweight = form.weight.value,
+                    fheight = form.height.value,
+                    fdiseases = form.diseases.value,
+                    fnote= form.note.value;
+                        
+                  
+                        
+                        
+                alert("hi");
+                
+                
+                var highscores = [{"homeId": fhomeId,
+                                   "name":fname,
+                                   "age":fage,
+                                   "gender":fgender,
+                                   "siblings":fsiblings,
+                                   "weight":fweight,
+                                   "height":fheight,
+                                   "diseases":fdiseases,
+                                   "note":fnote}];
+               
+                           
+                           
+                           
+                localStorage.setItem("highscores",JSON.stringify(highscores));
+               
+                alert("The data has been stored successfully.");
+            } else {
+                alert("Your Browser does not support LocalStorage.");
+            }
+        }
+
+        function readLocal(){
+            if (window.localStorage) {
+            
+
+                //Get the highscores object
+                var scores = localStorage.getItem("highscores");
+                scores = JSON.parse(scores);
+                for (i=0;i<scores.length;i++){
+                    
+             
+                    
+                    var text = "homeId :"+scores[i].homeId +"<br>"+
+                                "name:"+ scores[i].name+"<br>"+
+                                "age"+scores[i].age +"<br>"+
+                                "gender"+scores[i].gender +"<br>"+
+                                "siblings"+scores[i].siblings+"<br>" +
+                                "weight"+scores[i].weight+"<br>" +
+                                "height"+scores[i].height+"<br>" +
+                                "diseases"+scores[i].diseases+"<br>" +
+                                "note"+scores[i].note+"<br>" +
+                                '<Button value="DELETE" onclick="'+scores.splice(i, 0)+'><>/Button>';
+                    
+                    
+                            var tbodyx = document.getElementsByTagName("tbody");
+                            var tr=document.createElement("TR");
+                            var td=document.createElement("TD");
+                            td.innerHTML = text;
+                            tr.appendChild(td);
+                            tbody.appendChild(tr);
+                       
+                 
+                }
+            }
+        }
+	</script>
+
+</head>
+
+<body>
+    <div data-role="page" id="page1">
+		<!--/header-->	
+		<div data-role="header" data-position="inline" data-theme="b">
+		
+			<a href="#" data-icon="back" data-rel="back" title="Go back">Back</a>
+			<h1>Baby Profile</h1>
+			<a href="index.html" data-icon="home">Menu</a>
+			
+		</div>
+		<!--/header-->
+        
+		<div id="wrapper">
+			 <form id="userInput" action ="" method="GET"> 
+				<div data-role="content">
+					
+					
+					<div data-role="fieldcontain">
+						<label > Home ID </label> 
+						<input class="inputClass" id="homeId" placeholder="H0001" value="" data-mini="true" type="text">
+					</div>
+					
+					<div data-role="fieldcontain">
+						<label > Name </label> 
+						<input class="inputClass" id="name" placeholder="Nadeesha" value="" data-mini="true" type="text">
+					</div>
+					
+					<div  data-role="fieldcontain">
+						<label > Age </label> 
+						<input class="inputClass" id="age" placeholder="1
+						" value="" type="text">
+					</div>
+					
+					<fieldset data-role="fieldcontain">
+					<legend>Gender</legend>
+						<input type="radio" name="gender" id="radio-choice-1" value="Male" checked="checked" />
+						<label for="radio-choice-1">Male</label>
+
+						<input type="radio" name="gender" id="radio-choice-2" value="Female"  />
+						<label for="radio-choice-2">Female</label>
+					</fieldset>	
+
+					<div  data-role="fieldcontain">
+						<label > No. of Siblings </label> 
+						<input class="inputClass" id="siblings" placeholder="2" value="" type="text">
+					</div>
+
+					<div  data-role="fieldcontain">
+						<label > Weight </label> 
+						<input class="inputClass" id="weight" placeholder="3" value="" type="text">
+					</div>
+					
+					<div  data-role="fieldcontain">
+						<label > Height </label> 
+						<input class="inputClass" id="height" placeholder="45 cm" value="" type="text">
+					</div>
+					
+					<div  data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<legend>5 Senses Development:</legend>
+							<input type="checkbox" name="checkbox-1a" id="checkbox-1a" value="Vision" class="custom" />
+							<label for="checkbox-1a">Vision</label>
+							
+							<input type="checkbox" name="checkbox-2a" id="checkbox-2a" value="Hearing" class="custom" />
+							<label for="checkbox-2a">Hearing</label>
+							
+							<input type="checkbox" name="checkbox-3a" id="checkbox-3a" value="Sensitivity" class="custom" />
+							<label for="checkbox-3a">Sensitivity</label>
+
+							<input type="checkbox" name="checkbox-4a" id="checkbox-4a" value="Taste" class="custom" />
+							<label for="checkbox-4a">Taste</label>
+							
+							<input type="checkbox" name="checkbox-4a" id="checkbox-4a" value="Smell"  class="custom" />
+							<label for="checkbox-4a">Smell</label>
+						</fieldset>
+					</div>
+					
+			
+			
+					<div data-role="fieldcontain">
+							<label for="textarea">Diseases:</label>
+							<textarea cols="40" rows="30" name="diseases" class="inputClass" id="diseases"></textarea>
+					</div>
+					
+					
+					<div data-role="fieldcontain">
+							<label for="textarea">Notes:</label>
+							<textarea cols="40" rows="30" name="notes" class="inputClass" id="note"></textarea>
+					</div>
+					
+					<!--- /modify-->
+					
+					<input class="buttonClass" type="button" value="Insert Data" onclick="saveLocal(this.form);">
+					
+				 </div>
+			 </form>
+		 </div>
+
+        <input class="buttonClass" type="button" value="get Data" onclick="readLocal();">
+      <!--  <p id="dhomeId"></p>
+        <p id="downer"></p>
+        <p id="dgramaND"></p>
+        <p id="dcontactNo"></p>
+        <p id="daddress"></p>
+        <p id="drace"></p>-->
+        
+        
+      
+        <table border="1">
+            <tbody id="tbody">
+                <tr><td>test1</td></tr>
+                <tr><td>test2</td></tr>
+            </tbody>
+        </table>
+        
+
+
+	 
+	</div>
+
+
+</body>
+</html>
+<!-- ********************* HMTL5 Storage end *********************** -->

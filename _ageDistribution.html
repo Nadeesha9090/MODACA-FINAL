@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title></title>
+ 
+     <link rel="stylesheet" href="jquery/jquery.mobile-1.4.2.min.css">
+	 <link rel="stylesheet" href="css/table.css">
+     <script type="text/javascript" src="cordova.js"></script>
+	 <script type="text/javascript" src="jquery/jquery-1.9.1.min.js"></script>
+	 <script type="text/javascript" src="jquery/jquery.mobile-1.4.2.min.js"></script> 
+	 <script type="text/javascript" src="js/register.js"></script>  
+	 <script type="text/javascript" src="js/iscroll.js"></script> 
+</head>
+<body>
+
+	<div data-role="page" id="page1">
+		
+		
+		<!--/header-->	
+		<div data-role="header" data-position="inline" data-theme="b">
+		
+			<a href="#" data-icon="back" data-rel="back" title="Go back">Back</a>
+			<h1>Age Distribution</h1>
+			<a href="index.html" data-icon="home">Menu</a>
+			
+		</div>
+		<!--/header-->
+		
+		
+			<div data-role="content">    
+			   <table>
+				   <tr><th>Age Group</th><th>Male</th><th>Female</th></tr>
+				  
+					<tr>
+						<td>0-5</td>
+						<td>
+							<input name="Male" id="Male"  value="" type="number">
+						</td>
+						<td>
+							<input name="Female" id="Female"  value="" type="number">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>6-10</td>
+						<td>
+							<input name="Male" id="Male" value="" type="number">
+						</td>
+						<td>
+							<input name="Female" id="Female"  value="" type="number">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>11-20</td>
+						<td>
+							<input name="Male" id="Male"  value="" type="number">
+						</td>
+						<td>
+							<input name="Female" id="Female"  value="" type="number">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>21-25</td>
+						<td>
+							<input name="Male" id="Male"  value="" type="number">
+						</td>
+						<td>
+							<input name="Female" id="Female"  value="" type="number">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>26-30</td>
+						<td>
+							<input name="Male" id="Male"  value="" type="number">
+						</td>
+						<td>
+							<input name="Female" id="Female"  value="" type="number">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>31-35</td>
+						<td>
+							<input name="Male" id="Male"  value="" type="number">
+						</td>
+						<td>
+							<input name="Female" id="Female" value="" type="number">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>36-40</td>
+						<td>
+							<input name="Male" id="Male"  value="" type="number">
+						</td>
+						<td>
+							<input name="Female" id="Female"  value="" type="number">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>41-45</td>
+						<td>
+							<input name="Male" id="Male"  value="" type="number">
+						</td>
+						<td>
+							<input name="Female" id="Female"  value="" type="number">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>46-50</td>
+						<td>
+							<input name="Male" id="Male" value="" type="number">
+						</td>
+						<td>
+							<input name="Female" id="Female"  value="" type="number">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>51-55</td>
+						<td>
+							<input name="Male" id="Male"  value="" type="number">
+						</td>
+						<td>
+							<input name="Female" id="Female"  value="" type="number">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>>55</td>
+						<td>
+							<input name="Male" id="Male"  value="" type="number">
+						</td>
+						<td>
+							<input name="Female" id="Female"  value="" type="number">
+						</td>
+					</tr>
+				
+			   </table>
+			   <input id="register" value="Save" type="button" name="Save" onclick="validationcheck();">
+			</div><!-- /content -->
+	</div><!-- /page -->
+	
+
+	<script type="text/javascript">
+		function validationcheck() {
+			
+			if (document.myForm.male.value == "") {
+				alert("Please Enter Male Population.");
+				document.myForm.male.focus(); 
+			} else if (document.myForm.female.value == "") {
+				alert("Please Enter Female Population.");
+				document.myForm.female.focus();
+			} else if (document.myForm.total.value == "") {
+				alert("Please Enter Total Population.");
+				document.myForm.total.focus();
+			} else if (document.myForm.nofamilies.value == "") {
+				alert("Please Enter Number of Families.");
+				document.myForm.nofamilies.focus();
+			}
+			
+			else
+				{
+				  success();
+				}
+		}
+		
+		function success(){
+			onDeviceReady();
+		}
+	</script>
+
+</body>
+</html>

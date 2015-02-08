@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Household Profile DB storage</title>
+	
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no,
+                                       initial-scale=1, maximum-scale=1,
+                                       minimum-scale=1,width=device-width" />
+    
+	
+	 <link rel="stylesheet" href="jquery/jquery.mobile-1.4.2.min.css">
+	 <link rel="stylesheet" href="css/table.css">
+   <!--script type="text/javascript" src="cordova.js"></script-->
+	 
+	 <script type="text/javascript" src="jquery/jquery-1.9.1.min.js"></script>
+	 <script type="text/javascript" src="jquery/jquery.mobile-1.4.2.min.js"></script>
+	 
+	 <!--script type="text/javascript" src="js/iscroll.js"></script--> 
+	  
+	<script type="text/javascript" charset="utf-8">
+		$('#userInput').submit(function(e) {
+			e.preventDefault();
+			var data = $('#userInput').serialize();
+			console.log(data);
+			$.post('http://modaca.k2vsoftware.com/api/households/save', data, function(e, status, jqXHR ) {
+				console.log(e);
+				console.log(status);
+				console.log(jqXHR);
+			});
+		});
+	</script>
+
+</head>
+
+<body>
+    <div data-role="page" id="page1">
+		<!--/header-->	
+		<div data-role="header" data-position="inline" data-theme="b">
+		
+			<a href="#" data-icon="back" data-rel="back" title="Go back">Back</a>
+			<h1>Pregnant Mother</h1>
+			<a href="index.html" data-icon="home">Menu</a>
+			
+		</div>
+		<!--/header-->
+        
+		<div id="wrapper">
+			 <form id="userInput" action ="" method="GET"> 
+				<div data-role="content">
+					
+					
+					<div data-role="fieldcontain">
+						<label > Home ID </label> 
+						<input class="inputClass" id="homeId" placeholder="H0001" value="" data-mini="true" type="text">
+					</div>
+					
+					<div data-role="fieldcontain">
+						<label > Name </label> 
+						<input class="inputClass" id="name" placeholder="Wimala" value="" data-mini="true" type="text">
+					</div>
+					
+					<div  data-role="fieldcontain">
+						<label > Age </label> 
+						<input class="inputClass" id="age" placeholder="31" value="" type="text">
+					</div>
+					
+					
+
+					<div  data-role="fieldcontain">
+						<label > Occupaton </label> 
+						<input class="inputClass" id="occupation" placeholder="teacher" value="" type="text">
+					</div>
+
+					<div  data-role="fieldcontain">
+						<label > Education </label> 
+						<input class="inputClass" id="education" placeholder="University" value="" type="text">
+					</div>
+					
+					
+					<div data-role="fieldcontain">
+							<label  class="select">Primary Health issue</label>
+							<select class="inputClass" id="primaryHealthIssue">
+								<option value="Issue 1">Low Blood Pressure</option>
+								<option value="Issue 2">Lack of Nutritions</option>
+								<option value="Issue 3">Issue 3</option>
+								<option value="Issue 4">Issue 4</option>
+							</select>
+					</div>
+					
+					<div data-role="fieldcontain">
+							<label for="textarea">Diseases:</label>
+							<textarea cols="40" rows="30" name="diseases" class="inputClass" id="diseases"></textarea>
+					</div>
+					
+					
+					<div  data-role="fieldcontain">
+						<label > Sleep hours </label> 
+						<input class="inputClass" id="sleepHours" placeholder="7" value="" type="text">
+						
+						<label > Exercise hours</label> 
+						<input class="inputClass" id="exerciseHours" placeholder="3" value="" type="text">
+					</div>
+					
+					<div  data-role="fieldcontain">
+						<label > Weight </label> 
+						<input class="inputClass" id="weight" placeholder="45 kg" value="" type="number">
+					</div>
+					
+					<div  data-role="fieldcontain">
+						<label > Fetus Age </label> 
+						<input class="inputClass" id="fetusAge" placeholder="3 months" value="" type="number">
+					</div>
+					
+					<div  data-role="fieldcontain">
+						<label > No of previous children </label> 
+						<input class="inputClass" id="noPreviousChildren" placeholder="1" value="" type="text">
+					</div>
+					
+					<div data-role="fieldcontain">
+							<label for="textarea">Notes:</label>
+							<textarea cols="40" rows="30" name="notes" class="inputClass" id="note"></textarea>
+					</div>
+					
+					<!--- /modify-->
+					
+					<input type="submit" name="submit"  class="buttonClass" value="Insert Data">
+					
+				 </div>
+			 </form>
+		 </div>
+	 
+	</div>
+
+
+</body>
+</html>
+<!-- ********************* HMTL5 Storage end *********************** -->

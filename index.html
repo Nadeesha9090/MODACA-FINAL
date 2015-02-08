@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>MODACA Mobile </title>
+		<meta name="description" content="Multi-Level Push Menu: Off-screen navigation with multiple levels" />
+		<meta name="keywords" content="multi-level, menu, navigation, off-canvas, off-screen, mobile, levels, nested, transform" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		
+		
+		<link rel="stylesheet" href="style.css">
+	
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		
+		<link rel="stylesheet" type="text/css" href="css/flaticon.css"> 
+		
+		<script type="text/javascript" src="cordova.js"></script>
+		<script src="js/modernizr.custom.js"></script>
+		
+		<link rel="stylesheet" href="css/Live_tile/demo-styles.css" />
+		<script src="js/Live_tile/modernizr-1.5.min.js"></script>
+		<script src="js/Live_tile/modernizr-1.5.min.js"></script>
+
+		
+		<style>
+			img, object{
+				max-height:100%;
+				max-width:100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<!-- Push Wrapper -->
+			<div class="mp-pusher" id="mp-pusher">
+
+				<!-- mp-menu -->
+				<nav id="mp-menu" class="mp-menu">
+					<div class="mp-level">
+						<h2 class="icon icon-world">MODACA Menu</h2>
+						<ul>
+						<li class="icon icon-arrow-left">
+								<a class="icon icon-pencil2" href="#">&nbsp;Initial Data</a>
+								<div class="mp-level">
+									<h2 class="icon icon-pencil2">Initial Data</h2>
+									<ul>
+										<li><a href="SaveDeletePlace.html" class="icon icon-location">&nbsp; Location</a></li>
+										<li><a href="_population.html" class="icon icon-users">&nbsp; Population</a></li>
+										<li><a href="_ageDistribution.html" class="icon icon-bars">&nbsp; Age Distribution</a></li>
+										<li><a href="_educationLevel.html" class="icon icon-book">&nbsp; Education Level</a></li>
+										<li><a href="_occupation.html" class="icon icon-user3">&nbsp; Occupation</a></li>
+										<li><a href="_monthlyIncome.html" class="icon  icon-coin">&nbsp; Monthly Income</a></li>
+										
+										<li><a href="#" class="icon icon-cog">&nbsp; Settings</a></li>
+									</ul>
+								</div>
+							</li>
+							
+							<li class="icon icon-arrow-left">
+								<a class="icon icon-user" href="#">&nbsp;Profiles</a>
+								<div class="mp-level">
+									<h2 class="icon icon-user">Profile</h2>
+									<ul >
+										<li class="icon icon-arrow-left">
+										<a href="Household.html" class="icon icon-home">&nbsp; Household</a>
+										<!--	<a class="icon icon-copy" href="#">Household-Profile</a>-->
+												<div class="mp-level">
+													<h2 class="icon icon-home">Household</h2>
+													<ul>
+														<li class="icon icon-arrow-left"><a href="Household.html" >&nbsp; Add </a></li>
+														<li class="icon icon-arrow-left"><a href="Household-Display.html" >&nbsp; View & Edit </a></li>
+													</ul>
+												</div>
+										</li>
+										<li class="icon icon-arrow-left"><a href="FamilyMember.html" class="icon icon-user22">&nbsp; family Member </a></li>
+										<li class="icon icon-arrow-left"><a href="Baby.html" class="icon icon-github">&nbsp; Baby </a></li>
+										<li class="icon icon-arrow-left"><a href="PregnantMother.html" class="icon icon-user2">&nbsp; Pregnant Mother </a></li>
+									</ul>
+								</div>
+							</li>
+							
+							<li class="icon icon-arrow-left">
+								<a class="icon icon-copy" href="#">&nbsp;Health Issue</a>
+								<div class="mp-level">
+									<h2 class="icon icon-copy">Health Issue</h2>
+									<ul>
+										<li><a href="_addHealthIssue.html" >&nbsp; Add Issue </a></li>
+										<li><a href="_addDeterminantestoHealthIssue.html" >&nbsp; Add Determinants </a></li>
+										<li><a href="#" >&nbsp; Create Questioner </a></li>
+									</ul>
+								</div>
+							</li>
+							
+							<li class="icon icon-arrow-left">
+								<a class="icon icon-sigma" href="#">&nbsp;Calculator</a>
+								<div class="mp-level">
+									<h2 class="icon icon-sigma">Health Calculator</h2>
+									<ul>
+										<li><a href="BMI.html" >&nbsp; BMI Calculator </a></li>
+										<li><a href="WHR.html" >&nbsp; WHR Calculator </a></li>
+									</ul>
+								</div>
+							</li>
+							
+							<li class="icon icon-arrow-left">
+								<a class="icon icon-list" href="#">&nbsp;Visualizing</a>
+								<div class="mp-level">
+									<h2 class="icon icon-list">Health Calculator</h2>
+									<ul>
+										<li><a href="BMIChart_.html" >&nbsp; BMI variation</a></li>
+										<li><a href="WHRChart.html" >&nbsp; WHR variation</a></li>
+										<li><a href="5 sen.html" >&nbsp; 5 Sense Development</a></li>
+									</ul>
+								</div>
+							</li>
+							
+							
+													
+							<li class="icon icon-arrow-left">
+								<a class="icon icon-location2" href="#">&nbsp;Geo Location</a>
+								<div class="mp-level">
+									<h2 class="icon icon-location2">Geo Location</h2>
+									<ul>
+										<li><a href="Navigation.html" class="flaticon-location28">&nbsp; Navigation </a></li>
+										<li><a href="SaveDeletePlace.html" class="flaticon-paper48">&nbsp; Adding Places </a></li>
+										<li><a href="SaveDeletePlace.html" class="flaticon-remove11">&nbsp; Deleting Places </a></li>
+										
+									</ul>
+								</div>
+							</li>
+							
+						</ul>
+					</div>
+				</nav>
+				<!-- /mp-menu -->
+
+				<div class="scroller"><!-- this is for emulating position fixed of the nav -->
+					<div class="scroller-inner">
+						<!-- Top Navigation -->
+						<div class="codrops-top clearfix">
+							<div class="block block">
+								<p><a href="#" id="trigger" class="menu-trigger">&nbsp;</a></p>
+								
+							</div>
+						</div>
+						
+						<div class="demo-wrapper">
+							<!-- classnames for the pages should include: 1) type of page 2) page name-->
+							  <div class="s-page random-restored-page">
+								<h2 class="page-title">Some minimized App</h2>
+								<div class="close-button s-close-button">x</div>
+							  </div>
+							  <div class="s-page custom-page">
+								<h2 class="page-title">Thank You!</h2>
+								<div class="close-button s-close-button">x</div>
+							  </div>
+							  
+							<!--each tile should specify what page type it opens (to determine which animation) and the corresponding page name it should open-->
+							  <div class="dashboard clearfix">
+								<ul class="tiles">
+								  <div class="col1 clearfix">
+								  <a href="_addHealthIssue.html">
+									<li class="tile tile-big tile-1 slideTextUp" >
+									  <div><p>Health Issues</p></div>
+									  <div><p>View all Health Issues</p></div>
+									</li>
+									</a>
+									
+									
+									<a href="BMI.html">
+									<li class="tile tile-small tile tile-2 slideTextRight" >
+									  <div><p class="icon-arrow-right"></p></div>
+									  <div><p>BMI Calculator</p></div>
+									</li>
+									</a>
+									
+									<a href="WHR.html">
+									<li class="tile tile-small last tile-2 slideTextRight">
+									<div><p class="icon-arrow-right"></p></div>
+									 <div><p>WHR Calculator</p></div>
+									</li>
+									</a>
+									
+									<a href="http://modaca.k2vsoftware.com/">
+									<li class="tile tile-big tile-4 fig-tile">
+									  <figure>
+										<img src="images/Live_tile/blue.jpg" />
+										<figcaption class="tile-caption caption-left">MODACA WEB SITE</figcaption>
+									  </figure>
+									</li>
+								    </a>
+								  </div>
+
+								  <div class="col2 clearfix">
+								  <a href="WHRChart.html">
+									<li class="tile tile-big tile-5">
+									  <div><p><span class="icon-cloudy"></span>WHR Chart</p></div>
+									</li>
+									</a>
+									
+									<a href="Household-Display.html">
+									<li class="tile tile-big tile-6 slideTextLeft">
+									  <div><p><span class="icon icon-home"></span>Household </p></div>
+									  <div><p>View Profile</p></div>
+									</li>
+									
+									</a>
+									<!--Tiles with a 3D effect should have the following structure:
+										1) a container inside the tile with class of .faces
+										2) 2 figure elements, one with class .front and the other with class .back-->
+										<a href="https://www.google.com/maps/d/viewer?authuser=0&hl=en&mid=zuEmV2nPLKKE.kPdk8PhOkeuo">
+											<li class="tile tile-small tile-7 rotate3d rotate3dX" >
+											  <div class="faces">
+												<div class="front"><span class="icon icon-location2"></span></div>
+												<div class="back"  ><p>Map</p></div>
+											  </div>
+											</li>
+										</a>
+										<a href="FamilyMember.html">
+											<li class="tile tile-small last tile-8 rotate3d rotate3dY">
+											  <div class="faces">
+												<div class="front"><span class="icon-instagram"></span></div>
+												<div class="back"><p>Family Member</p></div>
+											  </div>
+											</li>
+										</a>
+										  </div>
+
+								  <div class="col3 clearfix"> 
+									<a href="http://www.rjt.ac.lk/">								  
+									<li class="tile tile-2xbig tile-9 fig-tile">
+									  <figure>
+										<img src="images/Live_tile/summer2.jpg" />
+										<figcaption class="tile-caption caption-bottom">Faculty Web Site:Rajarata University of Sri Lanka is a university located in the historic city of Mihintale
+										</figure>
+									</li>
+									</a>
+									
+									<a href="Access_Camera.html">
+									<li class="tile tile-big tile-10" >
+									  <div><p>Take Picture</p></div>
+									</li>
+									</a>
+									
+									
+								  </div>
+								</ul>
+							  </div><!--end dashboard-->
+
+							</div><!--Endrr-->
+						
+						<!-- <center><img src="images/home.jpg"></a><br /></center>-->
+					</div><!-- /scroller-inner -->
+				</div><!-- /scroller -->
+
+			</div><!-- /pusher -->
+		</div><!-- /container -->
+		<script src="js/classie.js"></script>
+		<script src="js/mlpushmenu.js"></script>
+		<script>
+			new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
+		</script>
+		
+		<!--====================================end wrapper================================================-->
+	<script src="js/Live_tile/jquery-1.8.2.min.js"></script>
+	<script src="js/Live_tile/scripts.js"></script>
+
+	</body>
+</html>

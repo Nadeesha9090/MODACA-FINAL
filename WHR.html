@@ -1,0 +1,132 @@
+
+<!--WHR CALCULATOR-->
+
+<!-- This part goes in the HEAD of the html file -->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title></title>
+ 
+  	 <link rel="stylesheet" href="jquery/jquery.mobile-1.4.2.min.css">
+	 <link rel="stylesheet" href="css/table.css">
+	 <script type="text/javascript" src="cordova.js"></script>
+	 <script type="text/javascript" src="jquery/jquery-1.9.1.min.js"></script>
+	 <script type="text/javascript" src="jquery/jquery.mobile-1.4.2.min.js"></script>
+	 <script type="text/javascript" src="js/register.js"></script> 
+	 <script type="text/javascript" src="js/iscroll.js"></script> 
+	 <script type="text/javascript" src="cordova.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+
+
+function get_whr() {
+ if (document.whr_calc.waist.value.length == 0) {
+      alert('Waist field is empty!'); return false; }
+ if (document.whr_calc.hip.value.length == 0) {
+      alert('Hip field is empty!'); return false; }
+
+ num1 = Math.pow(10, 2);
+ document.whr_calc.result_whr.value = document.whr_calc.waist.value / document.whr_calc.hip.value;
+ document.whr_calc.result_whr.value = Math.round(document.whr_calc.result_whr.value * num1) / num1;
+
+ if (document.whr_calc.gender[0].checked) {
+    if (document.whr_calc.result_whr.value <= 0.80) {
+       document.whr_calc.verdict_whr.value = "Your waist-to-hip ratio is Good and you fall in the Low Risk category!"; }
+    if ((document.whr_calc.result_whr.value > 0.80) && (document.whr_calc.result_whr.value < 0.85)) {
+       document.whr_calc.verdict_whr.value = "Your waist-to-hip ratio is Acceptable and you fall in the Moderate Risk category!"; }
+    if (document.whr_calc.result_whr.value >= 0.85) {
+       document.whr_calc.verdict_whr.value = "Your waist-to-hip ratio is Poor and you fall in the High Risk category!"; }
+ }
+ if (document.whr_calc.gender[1].checked) {
+    if (document.whr_calc.result_whr.value <= 0.95) {
+       document.whr_calc.verdict_whr.value = "Your waist-to-hip ratio is Good and you fall in the Low Risk category!"; }
+    if ((document.whr_calc.result_whr.value > 0.95) && (document.whr_calc.result_whr.value <= 1.00)) {
+       document.whr_calc.verdict_whr.value = "Your waist-to-hip ratio is Acceptable and you fall in the Moderate Risk category!"; }
+    if (document.whr_calc.result_whr.value > 1.00) {
+       document.whr_calc.verdict_whr.value = "Your waist-to-hip ratio is Poor and you fall in the High Risk category!"; }
+ }
+}
+//-->
+</script>
+
+</head> 
+<body>
+<!-- This goes into the BODY of the file -->
+
+<!--Modify-->
+	<div data-role="page" id="page1">
+		<!--/header-->	
+		<div data-role="header" data-position="inline" data-theme="b">
+		
+			<a href="#" data-icon="back" data-rel="back" title="Go back">Back</a>
+			<h1>Waist - Hip Ratio Calculator</h1>
+			<a href="index.html" data-icon="home">Menu</a>
+			
+		</div>
+		<!--/header-->
+        
+		
+		
+	<div id="wrapper">	
+		<form name="whr_calc">
+			<div data-role="content">
+			
+				<!--Gender selection-->
+				<div data-role="fieldcontain">
+				    <fieldset data-role="controlgroup">
+				    	<legend>Select your gender:</legend>
+				         	<input type="radio" name="gender" id="radio-choice-1c" value="Male" />
+				         	<label for="radio-choice-1c">Male</label>
+
+				         	<input type="radio" name="gender" id="radio-choice-2c" value="Female"  />
+				         	<label for="radio-choice-2c">Female</label>
+				    </fieldset>
+				</div>
+				<!--/gender-->
+				
+				<div data-role="fieldcontain">
+					 <label for="Waist">Waist:</label>
+					 <input type="number" name="waist" id="waist" value="" placeholder="inches" />
+				</div> 
+				
+				
+				<div data-role="fieldcontain">
+					 <label for="Hip">Hip:</label>
+					 <input type="number" name="hip" id="hip" value="" placeholder="inches" />
+				</div>
+				
+				<div data-role="fieldcontain">
+					 <label for="Hip">Result:</label>
+					 <input type="button" value="Get Result" onclick="get_whr()"  />
+				</div> 
+				
+				<div data-role="fieldcontain">
+					<label for="Hip">Reset:</label>
+					<input type="reset" name="submit" value="Reset"/>
+				</div>
+				
+				
+				<div data-role="fieldcontain">
+					 <label for="Hip">Result:</label>
+					 <input type="number" name="result_whr" id="result_whr" value="" placeholder="inches" />
+				</div>
+				
+				<div data-role="fieldcontain">
+					 <label for="Hip">Verdict:</label>
+					 <textarea name="verdict_whr" id="verdict_whr" value="" placeholder="inches"></textarea>
+				</div>
+				 
+			</div>	 
+		</form>
+	</div>
+</div>
+		
+<!--/modify-->
+
+
+	
+</body>
+</html>

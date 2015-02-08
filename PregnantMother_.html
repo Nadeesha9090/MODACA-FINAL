@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Household Profile DB storage</title>
+	
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no,
+                                       initial-scale=1, maximum-scale=1,
+                                       minimum-scale=1,width=device-width" />
+    
+	
+	 <link rel="stylesheet" href="jquery/jquery.mobile-1.4.2.min.css">
+	 <link rel="stylesheet" href="css/table.css">
+   <script type="text/javascript" src="cordova.js"></script>
+	 
+	 <script type="text/javascript" src="jquery/jquery-1.9.1.min.js"></script>
+	 <script type="text/javascript" src="jquery/jquery.mobile-1.4.2.min.js"></script>
+	 
+	 <script type="text/javascript" src="js/iscroll.js"></script> 
+	  
+	<script type="text/javascript" charset="utf-8">
+        function onDeviceReady() { 
+		 persistData(homeId,name,age,occupation,education,primaryHealthIssue,diseases,sleepHours,exerciseHours,weight,fetusAge,noPreviousChildren,nutritionKnowledge,enthusiasm,transportFacilities,supportiveEnvironment,husbandSupport,familySupport,accessHealthFacilities,PHMNotified,familyPlanning,childCare,breastFeedingPrctice,complementaryFeedingPrctice,SenseStimulation,hygienePractices,PHMVisitations,timelyDrugUsage,rubellaAdministrated,childDevelopmentStepsKnowledge,note);
+		}
+        function saveLocal(form){
+            if (window.localStorage) {
+                
+                var fhomeId = form.homeId.value,
+                    fname = form.name.value,
+                    fage = form.age.value,
+                    foccupation = form.occupation.value,
+                    feducation = form.education.value,
+                    fprimaryHealthIssue = form.primaryHealthIssue.value,
+                    fdiseases = form.diseases.value,
+                    fsleepHours = form.sleepHours.value,
+                    fexerciseHours = form.exerciseHours.value,
+					fweight = form.weight.value,
+					ffetusAge = form.fetusAge.value,
+					fnoPreviousChildren = form.noPreviousChildren.value,
+					fnutritionKnowledge = form.nutritionKnowledge.value,
+					fenthusiasm = form.enthusiasm.value,
+					ftransportFacilities = form.transportFacilities.value,
+					fsupportiveEnvironment = form.supportiveEnvironment.value,
+					fhusbandSupport = form.husbandSupport.value,
+					ffamilySupport = form.familySupport.value,
+					faccessHealthFacilities = form.accessHealthFacilities.value,
+					fPHMNotified = form.PHMNotified.value,
+					ffamilyPlanning = form.familyPlanning.value,
+					fchildCare = form.childCare.value,
+					fbreastFeedingPrctice= form.breastFeedingPrctice.value,
+					fcomplementaryFeedingPrctice = form.complementaryFeedingPrctice.value,
+					fSenseStimulation = form.SenseStimulation.value,
+					fhygienePractices = form.hygienePractices.value,
+					fPHMVisitations = form.PHMVisitations.value,
+					ftimelyDrugUsage = form.timelyDrugUsage.value,
+					frubellaAdministrated = form.rubellaAdministrated.value,
+					fchildDevelopmentStepsKnowledge = form.childDevelopmentStepsKnowledge.value,
+                    fnotes = form.notes.value;
+                        
+                  
+                        
+                        
+                alert("hi");
+                
+                
+                var highscores = [{"homeId": fhomeId,
+                                   "name":fname,
+                                   "age":fage,
+                                   "occupation":foccupation,
+                                   "education":feducation,
+                                   "primaryHealthIssue":fprimaryHealthIssue,
+                                   "diseases":fdiseases,
+                                   "sleepHours":fsleepHours,
+                                   "exerciseHours":fexerciseHours,
+								   "weight":fweight,
+								   "fetusAge":ffetusAge,
+								   "noPreviousChildren":fnoPreviousChildren,
+								   "nutritionKnowledge":fnutritionKnowledge,
+								   "enthusiasm":fenthusiasm,
+								   "transportFacilities":ftransportFacilities,
+								   "transportFacilities":ftransportFacilities,
+								   "husbandSupport":fhusbandSupport,
+								   "familySupport":ffamilySupport,
+								   "accessHealthFacilities":faccessHealthFacilities,
+								   "PHMNotified":fPHMNotified,
+								   "familyPlanning":ffamilyPlanning,
+								   "childCare":fchildCare,
+								   "breastFeedingPrctice":fbreastFeedingPrctice,
+								   "complementaryFeedingPrctice":fcomplementaryFeedingPrctice,
+								   "SenseStimulation":fSenseStimulation,
+								   "hygienePractices":fhygienePractices,
+								   "PHMVisitations":fPHMVisitations,
+								   "timelyDrugUsage":ftimelyDrugUsage,
+								   "rubellaAdministrated":frubellaAdministrated,
+								   "childDevelopmentStepsKnowledge":fchildDevelopmentStepsKnowledge,
+                                   "notes":fnotes}];
+               
+                           
+                           
+                           
+                localStorage.setItem("highscores",JSON.stringify(highscores));
+               
+                alert("The data has been stored successfully.");
+            } else {
+                alert("Your Browser does not support LocalStorage.");
+            }
+        }
+
+        function readLocal(){
+            if (window.localStorage) {
+            
+
+                //Get the highscores object
+                var scores = localStorage.getItem("highscores");
+                scores = JSON.parse(scores);
+                for (i=0;i<scores.length;i++){
+                    
+             
+                    
+                    var text = "homeId :"+scores[i].homeId +"<br>"+
+                                "name:"+ scores[i].name+"<br>"+
+                                "age"+scores[i].age +"<br>"+
+                                "occupation"+scores[i].occupation+"<br>" +
+                                "education"+scores[i].education+"<br>" +
+                                "primaryHealthIssue"+scores[i].primaryHealthIssue+"<br>" +
+                                "diseases"+scores[i].diseases+"<br>" +
+                                "sleepHours"+scores[i].sleepHours+"<br>" +
+                                "exerciseHours"+scores[i].exerciseHours+"<br>" +
+                                "weight"+scores[i].weight +"<br>"+
+								"fetusAge"+scores[i].fetusAge +"<br>"+
+								"noPreviousChildren"+scores[i].noPreviousChildren +"<br>"+
+								"nutritionKnowledge"+scores[i].nutritionKnowledge +"<br>"+
+								"enthusiasm"+scores[i].enthusiasm +"<br>"+
+								"enthusiasm"+scores[i].enthusiasm +"<br>"+
+								"supportiveEnvironment"+scores[i].supportiveEnvironment +"<br>"+
+								"husbandSupport"+scores[i].husbandSupport +"<br>"+
+								"familySupport"+scores[i].familySupport+"<br>"+
+								"accessHealthFacilities"+scores[i].accessHealthFacilities +"<br>"+
+								"PHMNotified"+scores[i].PHMNotified +"<br>"+
+								"familyPlanning"+scores[i].familyPlanning +"<br>"+
+								"childCare"+scores[i].childCare +"<br>"+
+								"breastFeedingPrctice"+scores[i].breastFeedingPrctice +"<br>"+
+								"complementaryFeedingPrctice"+scores[i].complementaryFeedingPrctice +"<br>"+
+								"SenseStimulation"+scores[i].SenseStimulation +"<br>"+
+								"hygienePractices"+scores[i].hygienePractices +"<br>"+
+                                "PHMVisitations"+scores[i].PHMVisitations+"<br>" +
+								"timelyDrugUsage"+scores[i].timelyDrugUsage+"<br>" +
+								"rubellaAdministrated"+scores[i].rubellaAdministrated+"<br>" +
+								"childDevelopmentStepsKnowledge"+scores[i].childDevelopmentStepsKnowledge+"<br>" +
+								"note"+scores[i].note+"<br>" +
+                                '<Button value="DELETE" onclick="'+scores.splice(i, 0)+'><>/Button>';
+                    
+                    
+                            var tbodyx = document.getElementsByTagName("tbody");
+                            var tr=document.createElement("TR");
+                            var td=document.createElement("TD");
+                            td.innerHTML = text;
+                            tr.appendChild(td);
+                            tbody.appendChild(tr);
+                       
+                 
+                }
+            }
+        }
+	</script>
+
+</head>
+
+<body>
+    <div data-role="page" id="page1">
+		<!--/header-->	
+		<div data-role="header" data-position="inline" data-theme="b">
+		
+			<a href="#" data-icon="back" data-rel="back" title="Go back">Back</a>
+			<h1>Pregnant Mother</h1>
+			<a href="index.html" data-icon="home">Menu</a>
+			
+		</div>
+		<!--/header-->
+        
+		<div id="wrapper">
+			 <form id="userInput" action ="" method="GET"> 
+				<div data-role="content">
+					
+					
+					<div data-role="fieldcontain">
+						<label > Home ID </label> 
+						<input class="inputClass" id="homeId" placeholder="H0001" value="" data-mini="true" type="text">
+					</div>
+					
+					<div data-role="fieldcontain">
+						<label > Name </label> 
+						<input class="inputClass" id="name" placeholder="Wimala" value="" data-mini="true" type="text">
+					</div>
+					
+					<div  data-role="fieldcontain">
+						<label > Age </label> 
+						<input class="inputClass" id="age" placeholder="31" value="" type="text">
+					</div>
+					
+					
+
+					<div  data-role="fieldcontain">
+						<label > Occupaton </label> 
+						<input class="inputClass" id="occupation" placeholder="teacher" value="" type="text">
+					</div>
+
+					<div  data-role="fieldcontain">
+						<label > Education </label> 
+						<input class="inputClass" id="education" placeholder="University" value="" type="text">
+					</div>
+					
+					
+					<div data-role="fieldcontain">
+							<label  class="select">Primary Health issue</label>
+							<select class="inputClass" id="primaryHealthIssue">
+								<option value="Issue 1">Issue 1</option>
+								<option value="Issue 2">Issue 2</option>
+								<option value="Issue 3">Issue 3</option>
+								<option value="Issue 4">Issue 4</option>
+							</select>
+					</div>
+					
+					<div data-role="fieldcontain">
+							<label for="textarea">Diseases:</label>
+							<textarea cols="40" rows="30" name="diseases" class="inputClass" id="diseases"></textarea>
+					</div>
+					
+					
+					<div  data-role="fieldcontain">
+						<label > Sleep hours </label> 
+						<input class="inputClass" id="sleepHours" placeholder="7" value="" type="text">
+						
+						<label > Exercise hours</label> 
+						<input class="inputClass" id="exerciseHours" placeholder="3" value="" type="text">
+					</div>
+					
+					<div  data-role="fieldcontain">
+						<label > Weight </label> 
+						<input class="inputClass" id="weight" placeholder="45 kg" value="" type="number">
+					</div>
+					
+					<div  data-role="fieldcontain">
+						<label > Fetus Age </label> 
+						<input class="inputClass" id="fetusAge" placeholder="30" value="" type="number">
+					</div>
+					
+					<div  data-role="fieldcontain">
+						<label > No of previous children </label> 
+						<input class="inputClass" id="noPreviousChildren" placeholder="1" value="" type="text">
+					</div>
+					
+					<div  data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<legend>Rate</legend>
+							
+							<div data-role="fieldcontain">
+								<label  class="select">Nutrition Knowledge</label>
+								<select class="inputClass" id="nutritionKnowledge">
+									<option value="Issue 1">1</option>
+									<option value="Issue 2">2</option>
+									<option value="Issue 3">3</option>
+									<option value="Issue 4">4</option>
+									<option value="Issue 4">5</option>
+								</select>
+							</div>
+							
+							<div data-role="fieldcontain">
+								<label  class="select">Enthusiasm</label>
+								<select class="inputClass" id="enthusiasm">
+									<option value="Issue 1">1</option>
+									<option value="Issue 2">2</option>
+									<option value="Issue 3">3</option>
+									<option value="Issue 4">4</option>
+									<option value="Issue 4">5</option>
+								</select>
+							</div>
+							
+							<div data-role="fieldcontain">
+								<label  class="select">Transport Facilities</label>
+								<select class="inputClass" id="transportFacilities">
+									<option value="Issue 1">1</option>
+									<option value="Issue 2">2</option>
+									<option value="Issue 3">3</option>
+									<option value="Issue 4">4</option>
+									<option value="Issue 4">5</option>
+								</select>
+							</div>
+							
+							<div data-role="fieldcontain">
+								<label  class="select">Supportive Environment</label>
+								<select class="inputClass" id="supportiveEnvironment">
+									<option value="Issue 1">1</option>
+									<option value="Issue 2">2</option>
+									<option value="Issue 3">3</option>
+									<option value="Issue 4">4</option>
+									<option value="Issue 4">5</option>
+								</select>
+							</div>
+							
+							<div data-role="fieldcontain">
+								<label  class="select">Husband Support</label>
+								<select class="inputClass" id="husbandSupport">
+									<option value="Issue 1">1</option>
+									<option value="Issue 2">2</option>
+									<option value="Issue 3">3</option>
+									<option value="Issue 4">4</option>
+									<option value="Issue 4">5</option>
+								</select>
+							</div>
+							
+							<div data-role="fieldcontain">
+								<label  class="select">Family Support</label>
+								<select class="inputClass" id="familySupport">
+									<option value="Issue 1">1</option>
+									<option value="Issue 2">2</option>
+									<option value="Issue 3">3</option>
+									<option value="Issue 4">4</option>
+									<option value="Issue 4">5</option>
+								</select>
+							</div>
+							
+							<div data-role="fieldcontain">
+								<label  class="select">Access to Health Facilities</label>
+								<select class="inputClass" id="accessHealthFacilities">
+									<option value="Issue 1">1</option>
+									<option value="Issue 2">2</option>
+									<option value="Issue 3">3</option>
+									<option value="Issue 4">4</option>
+									<option value="Issue 4">5</option>
+								</select>
+							</div>
+							
+							<div data-role="fieldcontain">
+								<label  class="select">PHM has been Notified</label>
+								<select class="inputClass" id="PHMNotified">
+									<option value="Issue 1">1</option>
+									<option value="Issue 2">2</option>
+									<option value="Issue 3">3</option>
+									<option value="Issue 4">4</option>
+									<option value="Issue 4">5</option>
+								</select>
+							</div>
+							
+							<div data-role="fieldcontain">
+								<label  class="select">Family Planning Knowledge</label>
+								<select class="inputClass" id="familyPlanning">
+									<option value="Issue 1">1</option>
+									<option value="Issue 2">2</option>
+									<option value="Issue 3">3</option>
+									<option value="Issue 4">4</option>
+									<option value="Issue 4">5</option>
+								</select>
+							</div>
+							
+							<div data-role="fieldcontain">
+								<label  class="select">Child Care Knowledge</label>
+								<select class="inputClass" id="childCare">
+									<option value="Issue 1">1</option>
+									<option value="Issue 2">2</option>
+									<option value="Issue 3">3</option>
+									<option value="Issue 4">4</option>
+									<option value="Issue 4">5</option>
+								</select>
+							</div>
+							
+							<div data-role="fieldcontain">
+								<label  class="select">Breast Feeding Prctice Knowledge</label>
+								<select class="inputClass" id="breastFeedingPrctice">
+									<option value="Issue 1">1</option>
+									<option value="Issue 2">2</option>
+									<option value="Issue 3">3</option>
+									<option value="Issue 4">4</option>
+									<option value="Issue 4">5</option>
+								</select>
+							</div>
+							
+							<div data-role="fieldcontain">
+								<label  class="select">Complementary Feeding Practices</label>
+								<select class="inputClass" id="complementaryFeedingPrctice">
+									<option value="Issue 1">1</option>
+									<option value="Issue 2">2</option>
+									<option value="Issue 3">3</option>
+									<option value="Issue 4">4</option>
+									<option value="Issue 4">5</option>
+								</select>
+							</div>
+							
+							<div data-role="fieldcontain">
+								<label  class="select">5 Sense Stimulation</label>
+								<select class="inputClass" id="SenseStimulation">
+									<option value="Issue 1">1</option>
+									<option value="Issue 2">2</option>
+									<option value="Issue 3">3</option>
+									<option value="Issue 4">4</option>
+									<option value="Issue 4">5</option>
+								</select>
+							</div>
+							
+							<div data-role="fieldcontain">
+								<label  class="select">Hygiene Practices</label>
+								<select class="inputClass" id="hygienePractices">
+									<option value="Issue 1">1</option>
+									<option value="Issue 2">2</option>
+									<option value="Issue 3">3</option>
+									<option value="Issue 4">4</option>
+									<option value="Issue 4">5</option>
+								</select>
+							</div>
+							
+							<div data-role="fieldcontain">
+								<label  class="select">PHM Visitations</label>
+								<select class="inputClass" id="PHMVisitations">
+									<option value="Issue 1">1</option>
+									<option value="Issue 2">2</option>
+									<option value="Issue 3">3</option>
+									<option value="Issue 4">4</option>
+									<option value="Issue 4">5</option>
+								</select>
+							</div>
+							
+							
+							<div data-role="fieldcontain">
+								<label  class="select">Timely Drug Usage</label>
+								<select class="inputClass" id="timelyDrugUsage">
+									<option value="Issue 1">1</option>
+									<option value="Issue 2">2</option>
+									<option value="Issue 3">3</option>
+									<option value="Issue 4">4</option>
+									<option value="Issue 4">5</option>
+								</select>
+							</div>
+							
+							<div data-role="fieldcontain">
+								<label  class="select">Rubella Administrated</label>
+								<select class="inputClass" id="rubellaAdministrated">
+									<option value="Issue 1">1</option>
+									<option value="Issue 2">2</option>
+									<option value="Issue 3">3</option>
+									<option value="Issue 4">4</option>
+									<option value="Issue 4">5</option>
+								</select>
+							</div>
+							
+							<div data-role="fieldcontain">
+								<label  class="select">Child Development Steps Knowledge</label>
+								<select class="inputClass" id="childDevelopmentStepsKnowledge">
+									<option value="Issue 1">1</option>
+									<option value="Issue 2">2</option>
+									<option value="Issue 3">3</option>
+									<option value="Issue 4">4</option>
+									<option value="Issue 4">5</option>
+								</select>
+							</div>
+							
+						</fieldset>
+					</div>
+					
+					<div data-role="fieldcontain">
+							<label for="textarea">Notes:</label>
+							<textarea cols="40" rows="30" name="notes" class="inputClass" id="note"></textarea>
+					</div>
+					
+					<!--- /modify-->
+					
+					<input class="buttonClass" type="button" value="Insert Data" onclick="saveLocal(this.form);">
+					
+				 </div>
+			 </form>
+		 </div>
+
+        <input class="buttonClass" type="button" value="get Data" onclick="readLocal();">
+      <!--  <p id="dhomeId"></p>
+        <p id="downer"></p>
+        <p id="dgramaND"></p>
+        <p id="dcontactNo"></p>
+        <p id="daddress"></p>
+        <p id="drace"></p>-->
+        
+        
+      
+        <table border="1">
+            <tbody id="tbody">
+                <tr><td>test1</td></tr>
+                <tr><td>test2</td></tr>
+            </tbody>
+        </table>
+        
+
+
+	 
+	</div>
+
+
+</body>
+</html>
+<!-- ********************* HMTL5 Storage end *********************** -->

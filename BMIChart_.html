@@ -1,0 +1,120 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Highcharts Example</title>
+
+		<script src="js/HighChart_js/jquery.min.js"></script>
+		<script src="js/HighChart_js/highcharts.js"></script>
+		<style type="text/css">
+${demo.css}
+		</style>
+		<script type="text/javascript" >
+			var bmisx = null;
+			var dataValue=[];
+			var dataDay = [];
+			var i;
+			
+
+window.onload = function() {
+	
+ 
+
+		$.ajax({
+			//url : 'http://localhost/MoDACA/api/bmis/getByID/1', // getHousehold => getByID // RUN THis-->
+			url : 'http://modaca.k2vsoftware.com/api/BMIs/getByID/1', // getHousehold => getByID // RUN THis
+			async : false,
+			type : 'post',
+			success : function(result) {
+				
+				bmisx= getObjByID(result);
+				
+				console.log(bmisx);
+				
+				for (i = 0; i < bmisx.length; i++) {
+					dataValue[i]=bmisx[i].value;
+					dataDay[i]=JSON.stringify(bmisx[i].date);
+				
+						
+					//alert(bmisx[i].value);
+					//alert(bmisx[i].date);
+				}	
+			
+		
+		
+    $('#container').highcharts({
+	
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'BMI Variation'
+        },
+        subtitle: {
+            text: 'Source: HPT unit Rajarata University of Sri Lanka'
+        },
+        xAxis: {
+            categories: JSON.parse("[" +dataDay+ "]")
+        },
+        yAxis: {
+            title: {
+                text: 'BMI values'
+            }
+        },
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: true
+                },
+                enableMouseTracking: false
+            }
+        },
+        series: [{     
+            name: 'BMI',
+            data: JSON.parse("[" +dataValue+ "]")
+        }, {
+         /*   name: 'London',
+            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]*/
+        }]
+    });
+
+				//alert(household['leader_name']);
+			},
+			error : function(xhr, status, err) {
+				console.log(xhr);
+				console.log(status);
+				console.log(err);
+			}
+		});
+
+
+	
+	// this function takes the result of the API call and the ID you want to extract
+	function getObjByID(result, id) {
+		var temp = jQuery.parseJSON(result);
+		temp = temp['data']['data'];
+		var objAry = jQuery.parseJSON(temp);
+		if(typeof id === 'undefined' ) {
+			return objAry;
+		} else 
+			return objAry[id];
+	}
+	
+	
+};
+
+		
+		
+
+		</script>
+	</head>
+	<body>
+<!--script src="../../js/highcharts.js"></script>
+<script src="../../js/modules/exporting.js"></script-->
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+
+	</body>
+</html>

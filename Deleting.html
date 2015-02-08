@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>mapsed.js - jQuery plug-in for Google Maps and Places API integration</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="ws/css/bootstrap.css" rel="stylesheet">
+
+		<!-- Core mapsed styles -->
+		<link href="mapsed.css" rel="stylesheet">
+
+		<!-- Add custom CSS here -->
+		<link href="ws/css/stylish-portfolio.css" rel="stylesheet">
+		<link href="ws/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<link href="examples/examples.css" rel="stylesheet">
+		<link href="index.css" rel="stylesheet">
+		<script type="text/javascript" src="cordova.js"></script>
+	</head>
+
+	<body>
+		
+		<!-- Side Menu -->
+		<!-- /Side Menu -->
+	
+		<!-- Full Page Image Header Area -->
+		<!-- /Full Page Image Header Area -->
+	
+		<!-- Intro -->
+		<!-- /Intro -->
+
+		<!-- Callout -->
+		<!-- /Callout -->
+
+		<!-- Examples -->
+		<div id="examples" class="portfolio">
+			<div class="container">
+				
+
+				
+
+				<div class="row">
+					 <div class="col-md-10 col-md-offset-1">
+						<div class="portfolio-item">
+							<h3 class="text-center">Deleting Places</h3>
+							<div id="delete-places" class="small-map"></div>
+							
+							<div class="clearfix"></div>
+							<div class="code">
+								<pre class="prettyprint lang-js">
+									  $("#delete-places").mapsed({
+										showOnLoad: 
+										[
+										  // City Varieties
+										  {
+											autoShow: true,
+											canEdit: true,
+											lat: 53.798823,
+											lng:-1.5426760000000286,
+											name: "CITY Varieties Music Hall",
+											url: "https://plus.google.com/103655993956272197223/about?hl=en-GB",
+											website: "http://www.cityvarieties.co.uk/",
+											telNo: "0845 644 1881",
+											street: "Swan Street,",
+											town: "Leeds",
+											area: "West Yorkshire",
+											postCode: "LS1 6LW"
+										  }
+										],
+										
+										// Allows the user to delete a "custom" place they've previously 
+										// ... added
+										onDelete: function(mapsed, placeToDelete) {
+												mapsed.showMsg(
+											"YOUR DELETE CODE HERE",
+											"&lt;strong&gt;" + placeToDelete.name + "&lt;/strong&gt; has been removed."
+										  );
+										  
+										  // here would be code your application to do the actual delete
+										  
+										  // return true to confirm it was deleted OK and remove marker from the map
+										  // return false if the delete failed
+										  return true;
+										},
+											
+										// Flag that we want the user to confirm the delete before we actually do it 
+										confirmDelete: true		
+									  });
+								</pre>
+							</div>
+						
+						</div>
+					</div>
+				</div>
+				<hr>
+
+								
+			</div>
+
+		</div>
+		<!-- /Examples -->
+
+		
+		
+		
+
+		<!-- Dependencies -->
+		<script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+		<script src="ws/js/jquery-1.10.2.js"></script>
+		<script src="ws/js/bootstrap.js"></script>
+
+		<!-- Mapsed JavaScript -->
+		<script src="mapsed.js"></script>
+		
+		<!-- Examples JavaScript -->
+		<script src="examples/01-custom-places-example.js"></script>
+		<script src="examples/02-place-picker-example.js"></script>
+		<script src="examples/03-add-places-example.js"></script>
+		<script src="examples/04-delete-places-example.js"></script>
+		<script src="examples/05-search-for-places-example.js"></script>
+		<script src="examples/06-full-example.js"></script>
+		
+		
+		
+	</body>
+
+</html>

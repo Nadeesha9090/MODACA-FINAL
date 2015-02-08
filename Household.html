@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Household Profile</title>
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="user-scalable=no,initial-scale=1, maximum-scale=1,minimum-scale=1,width=device-width" />
+		
+		<link rel="stylesheet" href="jquery/jquery.mobile-1.4.2.min.css">
+		<link rel="stylesheet" href="css/table.css">
+
+		<!--script type="text/javascript" src="cordova.js"></script-->
+		<script type="text/javascript" src="jquery/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="jquery/jquery.mobile-1.4.2.min.js"></script>
+		<!--script type="text/javascript" src="js/iscroll.js"></script--> 
+	</head>
+
+	
+	<body>
+		<div data-role="page" id="page1">
+			<div data-role="header" data-position="inline" data-theme="b">
+				<a href="#" data-icon="back" data-rel="back" title="Go back">Back</a>
+				<h1>Household Profile</h1>
+				<a href="index.html" data-icon="home">Menu</a>	
+			</div>
+			
+			<div id="wrapper">
+				 <form id="userInput" action ="" method="POST"> 
+					<div data-role="content">
+						<input type="hidden" name="field_community_id" value="3" />
+						<div data-role="fieldcontain">
+							<label > Home ID </label> 
+							<input class="inputClass" id="homeId" name="household_identifier" placeholder="H0001" value="" data-mini="true" type="text">
+						</div>
+						
+						<div  data-role="fieldcontain">
+							<label > Owner </label> 
+							<input class="inputClass" id="owner" name="leader_name" placeholder="Aberathne" value="" type="text">
+						</div>
+						
+						<div data-role="fieldcontain">
+							<label > Contact No </label> 
+							<input  class="inputClass" id="contactNo" name="contact_no" placeholder="071-9545-073" value="" type="number">
+						</div>
+						
+						<div data-role="fieldcontain">
+							<label >Address:</label>
+							<textarea cols="40" rows="8" name="address"  class="inputClass" id="address"></textarea>
+						</div>
+						
+						<div class="ui-block-a"><button type="submit" data-theme="d">Location in a Map</button></div>
+						
+						<div data-role="fieldcontain">
+								<label  >Race</label>
+								<select  class="inputClass" id="race" name="race">
+									<option value="Sinhalese"> Sinhalese</option>
+									<option value="Sri Lanka Tamils"> Sri Lanka Tamils</option>
+									<option value="Moors"> Moors</option>
+									<option value="Indian Tamils"> Indian Tamils </option>
+									<option value="Malays"> Malays </option>
+									<option value="Burghers">  Burghers </option>								
+								</select>
+						</div>
+						
+						<div data-role="fieldcontain">
+							 <label for="name">Income Rs:</label>
+							 <input type="text" name="income" class="inputClass" id="income" value=""  />
+						</div>
+						
+						<div data-role="fieldcontain">
+							 <label for="name">No of Members:</label>
+							 <input type="text" name="no_of_members" class="inputClass" id="numberMembers" value=""  />
+						</div>
+						
+						<div data-role="fieldcontain">
+							 <label for="name">No of Pregnent Mothers:</label>
+							 <input type="text" name="no_of_pregnant_mothers" class="inputClass" id="pregnentMothers" value=""  />
+						</div>
+						
+						<div data-role="fieldcontain">
+							 <label for="name">No of Babies:</label>
+							 <input type="text" name="no_of_babies" class="inputClass" id="numberBaby" value=""  />
+						</div>
+						
+						<div data-role="fieldcontain">
+								<label for="textarea">Notes:</label>
+								<textarea cols="40" rows="30" name="note" class="inputClass" id="note"></textarea>
+						</div>
+						
+						<input type="submit" name="submit"  class="buttonClass" value="Insert Data">
+						
+					 </div>
+				 </form>
+			 </div>
+		</div>
+		
+		<script type="text/javascript" src="js/db_js/script.js"></script>
+		
+	</body>
+	
+</html>
