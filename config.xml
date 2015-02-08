@@ -12,6 +12,6 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-	<gap:plugin name="org.apache.cordova.camera"  />
+	<gap:plugin name="org.wbt11a.nativecamera" version="0.1.4" />
 	
 </widget>
